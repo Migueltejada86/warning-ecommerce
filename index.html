@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WARNING — No somos moda, somos estilo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --text: #f5f5f5;
+  --muted: #a0a0a0;
+  --yellow: #ffcc00;
+  --yellow-bright: #ffe000;
+  --border: #2a2a2a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Bandas de peligro amarillas */
+.hazard-bar {
+  height: 12px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffcc00,
+    #ffcc00 10px,
+    #000 10px,
+    #000 20px
+  );
+  width: 100%;
+}
+.hazard-bar.thick { height: 18px; }
+.hazard-bar.bottom {
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffcc00,
+    #ffcc00 10px,
+    #000 10px,
+    #000 20px
+  );
+}
+
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #333;
+  padding: 0;
+}
+.header-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.8rem 2rem;
+}
+.logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+.hero-logo {
+  max-width: 480px;
+  width: 90%;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 0 25px rgba(255, 204, 0, 0.5));
+}
+.text-logo {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.2rem;
+  color: #fff;
+  text-shadow: 
+    3px 3px 0 #000,
+    -1px -1px 0 #000,
+    0 0 15px #ffcc00;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.sub-logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  color: var(--yellow);
+  margin-top: 0.3rem;
+}
+nav { display: flex; gap: 2rem; font-weight: 500; font-size: 0.95rem; }
+nav a:hover { color: var(--yellow); }
+.icons { display: flex; gap: 1.2rem; font-size: 1.2rem; }
+.hero {
+  min-height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=1600&q=80') center/cover;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 4rem 1rem;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-weight: 700; letter-spacing: 4px; line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000;
+}
+.hero p { font-size: 1.3rem; margin: 1.5rem 0 2rem; color: #eee; font-weight: 500; }
+.btn {
+  display: inline-block;
+  background: var(--yellow); color: #000;
+  padding: 0.9rem 2.4rem;
+  font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1.5px; border: none; cursor: pointer;
+  transition: 0.2s;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+}
+.btn:hover { background: var(--yellow-bright); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--yellow);
+  border: 3px solid var(--yellow); margin-left: 1rem;
+}
+.btn-outline:hover { background: var(--yellow); color: #000; }
+section { padding: 5rem 2rem; max-width: 1400px; margin: 0 auto; }
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.4rem; font-weight: 700; margin-bottom: 2rem;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--yellow);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--bg2);
+  border: 1px solid #333;
+  overflow: hidden;
+  transition: 0.3s;
+  position: relative;
+}
+.card:hover { transform: translateY(-6px); border-color: var(--yellow); }
+.card img { width: 100%; height: 380px; object-fit: cover; background: #222; }
+.card-info { padding: 1.2rem; }
+.card-info h3 { font-weight: 600; margin-bottom: 0.4rem; }
+.price { font-weight: 700; font-size: 1.15rem; color: var(--yellow); }
+.tag { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.categories {
+  display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 2rem;
+}
+.cat {
+  padding: 0.6rem 1.4rem;
+  border: 1px solid #444;
+  white-space: nowrap;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+.cat.active, .cat:hover { background: var(--yellow); color: #000; border-color: var(--yellow); }
+footer {
+  background: var(--bg2);
+  border-top: 1px solid #333;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.whatsapp {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  background: #25d366; color: white; width: 60px; height: 60px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  z-index: 99;
+}
+.banner {
+  background: var(--bg3);
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+}
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hero h1 { font-size: 3.2rem; }
+  section { padding: 3rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="hazard-bar thick"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="#" style="display:flex; align-items:center; gap:0.5rem;">
+      <img src="corona.png" alt="corona" style="height:42px; width:auto; filter: invert(1) brightness(2);">
+      <div class="text-logo" style="font-size:1.85rem; margin:0;">WARNING</div>
+    </a>
+    <nav>
+      <a href="#shop">Tienda</a>
+      <a href="#nuevos">Nuevos</a>
+      <a href="#mayorista">Mayorista</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="icons">
+      <span>🔍</span>
+      <span>👤</span>
+      <span>🛒 <span id="cart-count">0</span></span>
+    </div>
+  </div>
+  <div class="hazard-bar"></div>
+</header>
+
+<section class="hero">
+  <div>
+    <img src="logo-corona.jpg" alt="WARNING" class="hero-logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+    <div id="fallback-logo" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:center; gap:0.6rem; margin-bottom:0.5rem;">
+        <img src="corona.png" alt="" style="height:70px; width:auto; filter: invert(1);">
+        <div class="text-logo">WARNING</div>
+      </div>
+      <div class="sub-logo">INDUMENTARIA URBANA</div>
+    </div>
+    <p>No somos moda, somos estilo.<br>Ropa exclusiva. Calidad premium.</p>
+    <a href="#shop" class="btn">Comprar ahora</a>
+    <a href="#mayorista" class="btn btn-outline">Mayorista</a>
+  </div>
+</section>
+
+<div class="banner">
+  ⚠️ Carignani 493 · Alta Gracia · Todos los medios de pago · Envíos a todo el país ⚠️
+</div>
+<div class="hazard-bar"></div>
+
+<section id="shop">
+  <h2>Lo más vendido</h2>
+  <div class="categories">
+    <div class="cat active">Todo</div>
+    <div class="cat">Remeras</div>
+    <div class="cat">Jeans</div>
+    <div class="cat">Buzos</div>
+    <div class="cat">Bermudas</div>
+    <div class="cat">Zapatillas</div>
+  </div>
+  <div class="grid" id="products"></div>
+</section>
+
+<section id="mayorista" style="background: var(--bg2);">
+  <h2>Venta por mayor</h2>
+  <p style="max-width: 700px; color: var(--muted); margin-bottom: 2rem;">
+    Precios mayoristas reales. Ideal para revendedores y locales. Calidad excelente, modelos modernos y colores surtidos.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <div class="card-info">
+        <div class="tag">10 unidades</div>
+        <h3>Buzos</h3>
+        <div class="price">$10.999 c/u</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-info">
+        <div class="tag">20 unidades</div>
+        <h3>Buzos</h3>
+        <div class="price">$9.999 c/u</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-info">
+        <div class="tag">50 unidades</div>
+        <h3>Buzos</h3>
+        <div class="price">$9.499 c/u</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 2rem;">
+    <a href="https://wa.me/543547329595" class="btn" target="_blank">Consultar por WhatsApp</a>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="hazard-bar"></div>
+  <div style="padding: 3rem 2rem;">
+    <img src="logo-banner.jpg" alt="WARNING" style="height: 80px; width: auto; margin-bottom: 1.5rem; max-width: 100%;">
+    <p>Carignani 493 esq. Raúl Alfonsín · Alta Gracia</p>
+    <p>WhatsApp: 3547-329595</p>
+    <p style="margin-top: 1.5rem; color: var(--yellow); font-weight: 600;">“No fue suerte, siempre fue Dios.”</p>
+    <p style="margin-top: 2rem; font-size: 0.8rem;">© 2026 Warning Indumentaria — Prototipo</p>
+  </div>
+  <div class="hazard-bar thick bottom"></div>
+</footer>
+
+<a href="https://wa.me/543547329595" class="whatsapp" target="_blank">💬</a>
+
+<script>
+const products = [
+  { name: "Remera Oversize Negra", price: "$8.000", cat: "Remeras", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" },
+  { name: "Remera Blanca Básica", price: "$8.000", cat: "Remeras", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80" },
+  { name: "Jean Slim Azul", price: "$20.000", cat: "Jeans", img: "https://images.unsplash.com/photo-1542272454315-7ad9f0142c7e?w=600&q=80" },
+  { name: "Buzo Hoodie Negro", price: "$14.999", cat: "Buzos", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" },
+  { name: "Bermuda Cargo", price: "$14.000", cat: "Bermudas", img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80" },
+  { name: "Zapatillas Urbanas", price: "$20.000", cat: "Zapatillas", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" },
+  { name: "Remera Estampada", price: "$8.500", cat: "Remeras", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" },
+  { name: "Buzo Gris Oversize", price: "$15.500", cat: "Buzos", img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" }
+];
+
+function render(filter = "Todo") {
+  const grid = document.getElementById("products");
+  grid.innerHTML = "";
+  products
+    .filter(p => filter === "Todo" || p.cat === filter)
+    .forEach(p => {
+      grid.innerHTML += `
+        <div class="card">
+          <img src="${p.img}" alt="${p.name}">
+          <div class="card-info">
+            <div class="tag">${p.cat}</div>
+            <h3>${p.name}</h3>
+            <div class="price">${p.price}</div>
+            <button class="btn" style="margin-top:1rem; width:100%;" onclick="addToCart()">Agregar</button>
+          </div>
+        </div>`;
+    });
+}
+
+let cart = 0;
+function addToCart() {
+  cart++;
+  document.getElementById("cart-count").textContent = cart;
+}
+
+document.querySelectorAll(".cat").forEach(c => {
+  c.addEventListener("click", () => {
+    document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
+    c.classList.add("active");
+    render(c.textContent);
+  });
+});
+
+render();
+</script>
+</body>
+</html>
