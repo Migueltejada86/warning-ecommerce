@@ -3,347 +3,496 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WARNING — No somos moda, somos estilo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<title>WARNING — Indumentaria Masculina · Alta Gracia</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0a0a0a;
-  --bg2: #111111;
+  --bg2: #111;
   --bg3: #1a1a1a;
-  --text: #f5f5f5;
-  --muted: #a0a0a0;
+  --text: #f5f5f2;
+  --muted: #9a9a9a;
   --yellow: #ffcc00;
-  --yellow-bright: #ffe000;
+  --yellow2: #ffe033;
   --border: #2a2a2a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.5;
-}
+body { font-family: 'Archivo', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.45; }
 a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
-/* Bandas de peligro amarillas */
-.hazard-bar {
-  height: 12px;
-  background: repeating-linear-gradient(
-    45deg,
-    #ffcc00,
-    #ffcc00 10px,
-    #000 10px,
-    #000 20px
-  );
-  width: 100%;
+.hazard {
+  height: 10px;
+  background: repeating-linear-gradient(45deg, var(--yellow), var(--yellow) 8px, #000 8px, #000 16px);
 }
-.hazard-bar.thick { height: 18px; }
-.hazard-bar.bottom {
-  background: repeating-linear-gradient(
-    -45deg,
-    #ffcc00,
-    #ffcc00 10px,
-    #000 10px,
-    #000 20px
-  );
+.ticker {
+  background: #000;
+  color: var(--yellow);
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid #222;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
+.ticker-inner {
+  display: inline-block;
+  padding: 0.55rem 0;
+  animation: ticker 28s linear infinite;
+}
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(10,10,10,0.95);
+  background: rgba(10,10,10,.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #333;
-  padding: 0;
+  border-bottom: 1px solid #222;
 }
 .header-inner {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.8rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 1.4rem;
+  max-width: 1400px; margin: 0 auto;
 }
-.logo-img {
-  height: 60px;
-  width: auto;
-  display: block;
-}
-.hero-logo {
-  max-width: 480px;
-  width: 90%;
-  height: auto;
-  margin: 0 auto 1.5rem;
-  filter: drop-shadow(0 0 25px rgba(255, 204, 0, 0.5));
-}
-.text-logo {
+.logo {
+  display: flex; align-items: center; gap: 0.45rem;
   font-family: 'Permanent Marker', cursive;
-  font-size: 3.2rem;
-  color: #fff;
-  text-shadow: 
-    3px 3px 0 #000,
-    -1px -1px 0 #000,
-    0 0 15px #ffcc00;
-  letter-spacing: 2px;
-  line-height: 1;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000, 0 0 12px rgba(255,204,0,.45);
 }
-.sub-logo {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 4px;
-  color: var(--yellow);
-  margin-top: 0.3rem;
-}
-nav { display: flex; gap: 2rem; font-weight: 500; font-size: 0.95rem; }
+.logo img { height: 34px; width: auto; filter: invert(1) brightness(1.8); }
+nav { display: flex; gap: 1.6rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: .5px; }
 nav a:hover { color: var(--yellow); }
-.icons { display: flex; gap: 1.2rem; font-size: 1.2rem; }
+.icons { display: flex; gap: 1rem; font-size: 1.15rem; align-items: center; }
+.icons span { cursor: pointer; position: relative; }
+.badge {
+  position: absolute; top: -6px; right: -8px;
+  background: var(--yellow); color: #000; font-size: 0.65rem;
+  min-width: 16px; height: 16px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-weight: 800;
+}
+
 .hero {
-  min-height: 80vh;
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+  min-height: 78vh;
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)),
     url('https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=1600&q=80') center/cover;
   display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 4rem 1rem;
+  text-align: center; padding: 4rem 1rem 3rem;
   position: relative;
 }
 .hero h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
-  font-weight: 700; letter-spacing: 4px; line-height: 0.85;
-  text-transform: uppercase;
-  color: var(--yellow);
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  line-height: .9;
+  text-shadow: 3px 3px 0 #000, 0 0 20px rgba(255,204,0,.4);
 }
-.hero p { font-size: 1.3rem; margin: 1.5rem 0 2rem; color: #eee; font-weight: 500; }
+.hero h1 em { color: var(--yellow); font-style: normal; }
+.hero p { max-width: 520px; margin: 1.2rem auto 1.8rem; font-size: 1.05rem; color: #eee; }
+.btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
 .btn {
-  display: inline-block;
-  background: var(--yellow); color: #000;
-  padding: 0.9rem 2.4rem;
-  font-weight: 800; text-transform: uppercase;
-  letter-spacing: 1.5px; border: none; cursor: pointer;
-  transition: 0.2s;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.1rem;
+  display: inline-block; background: var(--yellow); color: #000;
+  padding: .85rem 1.8rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; border: none; cursor: pointer; font-size: .9rem;
+  transition: .15s;
 }
-.btn:hover { background: var(--yellow-bright); transform: translateY(-2px); }
-.btn-outline {
-  background: transparent; color: var(--yellow);
-  border: 3px solid var(--yellow); margin-left: 1rem;
-}
+.btn:hover { background: var(--yellow2); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--yellow); border: 2px solid var(--yellow); }
 .btn-outline:hover { background: var(--yellow); color: #000; }
-section { padding: 5rem 2rem; max-width: 1400px; margin: 0 auto; }
-h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2.4rem; font-weight: 700; margin-bottom: 2rem;
-  text-transform: uppercase; letter-spacing: 2px;
-  color: var(--yellow);
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-.card {
-  background: var(--bg2);
+
+.drop-box {
+  margin-top: 2.2rem;
+  background: rgba(0,0,0,.55);
   border: 1px solid #333;
-  overflow: hidden;
-  transition: 0.3s;
-  position: relative;
+  padding: 1.1rem 1.4rem;
+  display: inline-block;
 }
-.card:hover { transform: translateY(-6px); border-color: var(--yellow); }
-.card img { width: 100%; height: 380px; object-fit: cover; background: #222; }
-.card-info { padding: 1.2rem; }
-.card-info h3 { font-weight: 600; margin-bottom: 0.4rem; }
-.price { font-weight: 700; font-size: 1.15rem; color: var(--yellow); }
-.tag { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-.categories {
-  display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 2rem;
+.drop-box small { color: var(--yellow); font-weight: 700; letter-spacing: 1px; font-size: .75rem; }
+.drop-box strong { display: block; font-size: 1.1rem; margin: .2rem 0 .6rem; }
+.countdown { display: flex; gap: 1rem; justify-content: center; font-weight: 800; }
+.countdown div { min-width: 48px; }
+.countdown span { display: block; font-size: 1.4rem; }
+.countdown small { font-size: .65rem; color: var(--muted); font-weight: 600; }
+
+section { padding: 4.5rem 1.4rem; max-width: 1400px; margin: 0 auto; }
+h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800; font-size: 2rem; letter-spacing: -0.5px;
+  margin-bottom: 1.5rem; text-transform: uppercase;
+}
+h2 span { color: var(--yellow); }
+
+.cats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .8rem;
 }
 .cat {
-  padding: 0.6rem 1.4rem;
-  border: 1px solid #444;
-  white-space: nowrap;
-  font-weight: 600;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+  background: var(--bg2); border: 1px solid #2a2a2a;
+  padding: 1.4rem 1rem; text-align: center;
+  font-weight: 700; text-transform: uppercase; font-size: .85rem;
+  letter-spacing: .5px; cursor: pointer; transition: .2s;
 }
-.cat.active, .cat:hover { background: var(--yellow); color: #000; border-color: var(--yellow); }
+.cat:hover, .cat.active { border-color: var(--yellow); color: var(--yellow); }
+
+.filters {
+  display: flex; gap: .5rem; overflow-x: auto; margin-bottom: 1.5rem;
+  padding-bottom: .4rem;
+}
+.filters button {
+  background: transparent; border: 1px solid #333; color: var(--text);
+  padding: .45rem .9rem; font-weight: 600; font-size: .8rem;
+  text-transform: uppercase; cursor: pointer; white-space: nowrap;
+}
+.filters button.active, .filters button:hover { background: var(--yellow); color: #000; border-color: var(--yellow); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+.card {
+  background: var(--bg2); border: 1px solid #2a2a2a; position: relative;
+  transition: .25s;
+}
+.card:hover { border-color: var(--yellow); transform: translateY(-4px); }
+.card img { width: 100%; height: 320px; object-fit: cover; background: #222; }
+.card-info { padding: 1rem; }
+.card-info h3 { font-size: .95rem; font-weight: 700; margin-bottom: .3rem; text-transform: uppercase; }
+.price { font-weight: 800; font-size: 1.05rem; color: var(--yellow); }
+.cuotas { font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+.sizes { font-size: .7rem; color: #888; margin-top: .3rem; letter-spacing: .5px; }
+.tag {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--yellow); color: #000; font-size: .65rem;
+  font-weight: 800; padding: .25rem .5rem; text-transform: uppercase;
+}
+.tag.red { background: #e53935; color: #fff; }
+
+.promo {
+  background: var(--bg2); border: 1px solid #2a2a2a;
+  padding: 2.5rem 1.5rem; text-align: center; margin: 2rem 0;
+}
+.promo .big { font-size: 4rem; font-weight: 900; color: var(--yellow); line-height: 1; }
+
+.vip {
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  border: 1px solid var(--yellow);
+  padding: 2.5rem 1.5rem; text-align: center;
+}
+.vip ul { list-style: none; margin: 1rem 0 1.5rem; color: #ddd; }
+.vip li { margin: .4rem 0; }
+
+.talles {
+  background: var(--bg2); padding: 1.5rem;
+  overflow-x: auto;
+}
+table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+th, td { padding: .6rem .8rem; text-align: left; border-bottom: 1px solid #2a2a2a; }
+th { color: var(--yellow); font-weight: 700; }
+
+.faq details {
+  border-bottom: 1px solid #2a2a2a;
+  padding: .9rem 0;
+}
+.faq summary { cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: .9rem; }
+.faq p { margin-top: .5rem; color: var(--muted); font-size: .9rem; }
+
 footer {
-  background: var(--bg2);
-  border-top: 1px solid #333;
-  padding: 3rem 2rem;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
+  background: #080808; border-top: 1px solid #222;
+  padding: 2.5rem 1.4rem; text-align: center; color: var(--muted); font-size: .85rem;
 }
+footer .logo { justify-content: center; margin-bottom: .8rem; font-size: 1.5rem; }
+
+.cart-panel, .fav-panel {
+  position: fixed; top: 0; right: -380px; width: 360px; max-width: 100%;
+  height: 100%; background: #0e0e0e; border-left: 1px solid #333;
+  z-index: 200; transition: right .3s; padding: 1.2rem; overflow-y: auto;
+}
+.cart-panel.open, .fav-panel.open { right: 0; }
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.6);
+  z-index: 150; display: none;
+}
+.overlay.show { display: block; }
+
 .whatsapp {
-  position: fixed; bottom: 1.5rem; right: 1.5rem;
-  background: #25d366; color: white; width: 60px; height: 60px;
+  position: fixed; bottom: 1.2rem; right: 1.2rem;
+  background: #25d366; color: #fff; width: 56px; height: 56px;
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  z-index: 99;
+  font-size: 1.7rem; z-index: 99; box-shadow: 0 4px 16px rgba(0,0,0,.4);
 }
-.banner {
-  background: var(--bg3);
-  text-align: center;
-  padding: 3rem 1rem;
-  font-size: 1.1rem;
-}
+
 @media (max-width: 768px) {
   nav { display: none; }
-  .hero h1 { font-size: 3.2rem; }
+  .hero h1 { font-size: 3rem; }
   section { padding: 3rem 1rem; }
 }
 </style>
 </head>
 <body>
 
-<div class="hazard-bar thick"></div>
+<div class="ticker">
+  <div class="ticker-inner">
+    🔥 ENVÍOS A TODO EL PAÍS &nbsp;·&nbsp; ⚠ 2X1 EN SELECCIONADOS &nbsp;·&nbsp; 💳 3 CUOTAS SIN INTERÉS &nbsp;·&nbsp; 👑 ENTRÁ AL GRUPO VIP &nbsp;·&nbsp; 💸 10% OFF TRANSFERENCIA &nbsp;·&nbsp;
+    🔥 ENVÍOS A TODO EL PAÍS &nbsp;·&nbsp; ⚠ 2X1 EN SELECCIONADOS &nbsp;·&nbsp; 💳 3 CUOTAS SIN INTERÉS &nbsp;·&nbsp; 👑 ENTRÁ AL GRUPO VIP &nbsp;·&nbsp; 💸 10% OFF TRANSFERENCIA &nbsp;·&nbsp;
+  </div>
+</div>
+<div class="hazard"></div>
 
 <header>
   <div class="header-inner">
-    <a href="#" style="display:flex; align-items:center; gap:0.5rem;">
-      <img src="corona.png" alt="corona" style="height:42px; width:auto; filter: invert(1) brightness(2);">
-      <div class="text-logo" style="font-size:1.85rem; margin:0;">WARNING</div>
+    <a href="#" class="logo">
+      <img src="corona.png" alt="corona" onerror="this.style.display='none'">
+      WARNING
     </a>
     <nav>
-      <a href="#shop">Tienda</a>
-      <a href="#nuevos">Nuevos</a>
-      <a href="#mayorista">Mayorista</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#vip">VIP</a>
+      <a href="#talles">Talles</a>
+      <a href="#local">Local</a>
     </nav>
     <div class="icons">
       <span>🔍</span>
-      <span>👤</span>
-      <span>🛒 <span id="cart-count">0</span></span>
+      <span onclick="toggleFav()">♡ <span class="badge" id="fav-count">0</span></span>
+      <span onclick="toggleCart()">🛒 <span class="badge" id="cart-count">0</span></span>
     </div>
   </div>
-  <div class="hazard-bar"></div>
 </header>
 
 <section class="hero">
   <div>
-    <img src="logo-corona.jpg" alt="WARNING" class="hero-logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
-    <div id="fallback-logo" style="display:none;">
-      <div style="display:flex; align-items:center; justify-content:center; gap:0.6rem; margin-bottom:0.5rem;">
-        <img src="corona.png" alt="" style="height:70px; width:auto; filter: invert(1);">
-        <div class="text-logo">WARNING</div>
-      </div>
-      <div class="sub-logo">INDUMENTARIA URBANA</div>
+    <div style="color:var(--yellow); font-weight:800; letter-spacing:2px; font-size:.8rem; margin-bottom:.6rem;">⚠ NUEVO DROP DISPONIBLE</div>
+    <h1>VESTITE<br><em>DISTINTO</em></h1>
+    <p>Indumentaria masculina premium. Remeras oversize, jeans, buzos y camperas que no vas a ver en todos lados. Envíos a todo el país.</p>
+    <div class="btns">
+      <a href="#tienda" class="btn">Ver el drop</a>
+      <a href="#vip" class="btn btn-outline">Grupo VIP</a>
     </div>
-    <p>No somos moda, somos estilo.<br>Ropa exclusiva. Calidad premium.</p>
-    <a href="#shop" class="btn">Comprar ahora</a>
-    <a href="#mayorista" class="btn btn-outline">Mayorista</a>
+    <div class="drop-box">
+      <small>PRÓXIMO INGRESO</small>
+      <strong>DROP VIERNES 20 H</strong>
+      <div class="countdown" id="countdown">
+        <div><span id="d">00</span><small>DÍAS</small></div>
+        <div><span id="h">00</span><small>HS</small></div>
+        <div><span id="m">00</span><small>MIN</small></div>
+        <div><span id="s">00</span><small>SEG</small></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<div class="banner">
-  ⚠️ Carignani 493 · Alta Gracia · Todos los medios de pago · Envíos a todo el país ⚠️
-</div>
-<div class="hazard-bar"></div>
-
-<section id="shop">
-  <h2>Lo más vendido</h2>
-  <div class="categories">
-    <div class="cat active">Todo</div>
+<section id="categorias">
+  <h2>// <span>Elegí tu estilo</span></h2>
+  <div class="cats">
     <div class="cat">Remeras</div>
     <div class="cat">Jeans</div>
     <div class="cat">Buzos</div>
-    <div class="cat">Bermudas</div>
+    <div class="cat">Camperas</div>
+    <div class="cat">Gorras</div>
     <div class="cat">Zapatillas</div>
+  </div>
+</section>
+
+<section id="tienda">
+  <h2>// <span>Lo más pedido</span></h2>
+  <div class="filters">
+    <button class="active">Todos</button>
+    <button>Nuevo</button>
+    <button>Remeras</button>
+    <button>Jeans</button>
+    <button>Buzos</button>
+    <button>Camperas</button>
+    <button>Ofertas</button>
   </div>
   <div class="grid" id="products"></div>
 </section>
 
-<section id="mayorista" style="background: var(--bg2);">
-  <h2>Venta por mayor</h2>
-  <p style="max-width: 700px; color: var(--muted); margin-bottom: 2rem;">
-    Precios mayoristas reales. Ideal para revendedores y locales. Calidad excelente, modelos modernos y colores surtidos.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <div class="card-info">
-        <div class="tag">10 unidades</div>
-        <h3>Buzos</h3>
-        <div class="price">$10.999 c/u</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-info">
-        <div class="tag">20 unidades</div>
-        <h3>Buzos</h3>
-        <div class="price">$9.999 c/u</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-info">
-        <div class="tag">50 unidades</div>
-        <h3>Buzos</h3>
-        <div class="price">$9.499 c/u</div>
-      </div>
-    </div>
-  </div>
-  <div style="margin-top: 2rem;">
-    <a href="https://wa.me/543547329595" class="btn" target="_blank">Consultar por WhatsApp</a>
+<section>
+  <div class="promo">
+    <div class="big">2x1</div>
+    <p style="margin: .8rem 0 1.2rem; color: var(--muted);">En gorras y remeras seleccionadas. Llevás dos y pagás una. Se aplica solo en el carrito.</p>
+    <a href="#tienda" class="btn">Ver ofertas</a>
   </div>
 </section>
 
-<footer id="contacto">
-  <div class="hazard-bar"></div>
-  <div style="padding: 3rem 2rem;">
-    <img src="logo-banner.jpg" alt="WARNING" style="height: 80px; width: auto; margin-bottom: 1.5rem; max-width: 100%;">
-    <p>Carignani 493 esq. Raúl Alfonsín · Alta Gracia</p>
-    <p>WhatsApp: 3547-329595</p>
-    <p style="margin-top: 1.5rem; color: var(--yellow); font-weight: 600;">“No fue suerte, siempre fue Dios.”</p>
-    <p style="margin-top: 2rem; font-size: 0.8rem;">© 2026 Warning Indumentaria — Prototipo</p>
+<section id="vip">
+  <div class="vip">
+    <div style="font-size:2rem;">👑</div>
+    <h2 style="margin-top:.4rem;">Entrá al <span>grupo VIP</span></h2>
+    <ul>
+      <li>Enterate primero de cada ingreso</li>
+      <li>Ofertas exclusivas solo para el grupo</li>
+      <li>Reservás antes que nadie</li>
+    </ul>
+    <a href="https://wa.me/543547329595" class="btn" target="_blank">Unirme al grupo de WhatsApp</a>
+    <p style="margin-top:1rem; color:var(--muted); font-size:.85rem;">+17K personas ya siguen a Warning</p>
   </div>
-  <div class="hazard-bar thick bottom"></div>
+</section>
+
+<section>
+  <h2>// <span>Entradas acá</span></h2>
+  <p style="color:var(--muted); max-width:640px; margin-bottom:1.5rem;">Somos punto de venta de anticipadas para los bailes y shows de la zona. Pasá por el local o preguntanos por WhatsApp.</p>
+  <div class="grid">
+    <div class="card"><div class="card-info"><h3>Bailes</h3><p style="color:var(--muted); font-size:.9rem;">Anticipadas con descuento</p><a href="https://wa.me/543547329595" class="btn" style="margin-top:.8rem;" target="_blank">Consultar</a></div></div>
+    <div class="card"><div class="card-info"><h3>Shows</h3><p style="color:var(--muted); font-size:.9rem;">Recitales y fiestas de la zona</p><a href="https://wa.me/543547329595" class="btn" style="margin-top:.8rem;" target="_blank">Consultar</a></div></div>
+    <div class="card"><div class="card-info"><h3>Eventos</h3><p style="color:var(--muted); font-size:.9rem;">Seguí las novedades en IG</p><a href="https://instagram.com/warning.indumentaria_" class="btn" style="margin-top:.8rem;" target="_blank">Ver en IG</a></div></div>
+  </div>
+</section>
+
+<section id="talles">
+  <h2>// <span>Guía de talles</span></h2>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:1rem; margin-bottom:1.5rem;">
+    <div style="background:var(--bg2); padding:1.2rem; border:1px solid #2a2a2a;">
+      <strong>Oversize</strong>
+      <p style="color:var(--muted); font-size:.9rem; margin-top:.4rem;">Pedí tu talle de siempre para un calce holgado. Uno menos si lo querés más justo.</p>
+    </div>
+    <div style="background:var(--bg2); padding:1.2rem; border:1px solid #2a2a2a;">
+      <strong>Regular</strong>
+      <p style="color:var(--muted); font-size:.9rem; margin-top:.4rem;">Calce clásico. Elegí el talle que usás normalmente.</p>
+    </div>
+  </div>
+  <div class="talles">
+    <table>
+      <tr><th>TALLE</th><th>PECHO</th><th>LARGO</th><th>JEAN</th></tr>
+      <tr><td>S</td><td>100–104</td><td>70</td><td>38–40</td></tr>
+      <tr><td>M</td><td>104–110</td><td>72</td><td>40–42</td></tr>
+      <tr><td>L</td><td>110–116</td><td>74</td><td>42–44</td></tr>
+      <tr><td>XL</td><td>116–122</td><td>76</td><td>44–46</td></tr>
+      <tr><td>XXL</td><td>122–128</td><td>78</td><td>46–48</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="local">
+  <h2>// <span>Vení a probarte</span></h2>
+  <div style="background:var(--bg2); border:1px solid #2a2a2a; padding:1.8rem;">
+    <div style="color:var(--yellow); font-weight:700; font-size:.8rem; margin-bottom:.4rem;">ABIERTO AHORA</div>
+    <h3 style="font-size:1.6rem; margin-bottom:.3rem;">Carignani 493</h3>
+    <p style="color:var(--muted); margin-bottom:1rem;">Alta Gracia, Córdoba</p>
+    <p><strong>Lun a Sáb</strong> 9:30 a 13 · 17 a 21 h</p>
+    <p><strong>Domingo</strong> Cerrado</p>
+    <div style="margin-top:1.2rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+      <a href="https://maps.google.com/?q=Carignani+493+Alta+Gracia" class="btn" target="_blank">Cómo llegar</a>
+      <a href="https://wa.me/543547329595" class="btn btn-outline" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>// <span>Preguntas</span></h2>
+  <details open><summary>¿Hacen envíos a todo el país?</summary><p>Sí, a todo el país por correo. Gratis desde $150.000. En Alta Gracia te lo llevamos en moto o lo retirás en el local.</p></details>
+  <details><summary>¿Cómo funciona el 2x1?</summary><p>En productos marcados con 2x1, al llevar dos se descuenta automáticamente el de menor precio en el carrito.</p></details>
+  <details><summary>¿Puedo cambiar el talle?</summary><p>Sí, tenés 15 días para cambiarlo. Sin uso y con etiqueta.</p></details>
+  <details><summary>¿Qué medios de pago aceptan?</summary><p>Transferencia (10% OFF), tarjetas en 3 cuotas sin interés, débito, efectivo en el local y Mercado Pago.</p></details>
+  <details><summary>¿Cómo entro al grupo VIP?</summary><p>Tocá “Unirme al grupo” y entrás directo al grupo de WhatsApp. Ahí avisamos primero de cada ingreso y ofertas.</p></details>
+</section>
+
+<footer>
+  <div class="hazard"></div>
+  <div class="logo" style="margin:1.5rem auto .6rem;">WARNING</div>
+  <p>Indumentaria masculina premium</p>
+  <p>Carignani 493 · Alta Gracia</p>
+  <p style="margin-top:1rem;">© 2026 Warning Indumentaria</p>
+  <div class="hazard" style="margin-top:1.5rem;"></div>
 </footer>
+
+<div class="overlay" id="overlay" onclick="closePanels()"></div>
+<div class="cart-panel" id="cart">
+  <h3 style="margin-bottom:1rem;">Tu carrito</h3>
+  <div id="cart-items" style="color:var(--muted);">Vacío por ahora</div>
+  <button class="btn" style="width:100%; margin-top:1rem;" onclick="closePanels()">Seguir comprando</button>
+</div>
+<div class="fav-panel" id="fav">
+  <h3 style="margin-bottom:1rem;">Favoritos</h3>
+  <div style="color:var(--muted);">Todavía no tenés favoritos</div>
+</div>
 
 <a href="https://wa.me/543547329595" class="whatsapp" target="_blank">💬</a>
 
 <script>
 const products = [
-  { name: "Remera Oversize Negra", price: "$8.000", cat: "Remeras", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" },
-  { name: "Remera Blanca Básica", price: "$8.000", cat: "Remeras", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80" },
-  { name: "Jean Slim Azul", price: "$20.000", cat: "Jeans", img: "https://images.unsplash.com/photo-1542272454315-7ad9f0142c7e?w=600&q=80" },
-  { name: "Buzo Hoodie Negro", price: "$14.999", cat: "Buzos", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80" },
-  { name: "Bermuda Cargo", price: "$14.000", cat: "Bermudas", img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80" },
-  { name: "Zapatillas Urbanas", price: "$20.000", cat: "Zapatillas", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" },
-  { name: "Remera Estampada", price: "$8.500", cat: "Remeras", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" },
-  { name: "Buzo Gris Oversize", price: "$15.500", cat: "Buzos", img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" }
+  { name: "Remera Oversize Black", price: "$38.900", cuotas: "3 × $12.967 sin interés", cat: "Remeras", tag: "NUEVO", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80", sizes: "OVERSIZE · S M L XL XXL" },
+  { name: "Remera Heavy White", price: "$36.900", cuotas: "3 × $12.300 sin interés", cat: "Remeras", tag: "2X1", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80", sizes: "OVERSIZE · S M L XL XXL" },
+  { name: "Remera Boxy Negra", price: "$34.900", cuotas: "3 × $11.633 sin interés", cat: "Remeras", tag: "", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80", sizes: "BOXY · S M L XL XXL" },
+  { name: "Jean Baggy Celeste", price: "$74.900", cuotas: "3 × $24.967 sin interés", cat: "Jeans", tag: "MÁS VENDIDO", img: "https://images.unsplash.com/photo-1542272454315-7ad9f0142c7e?w=600&q=80", sizes: "BAGGY · 38 40 42 44 46 48" },
+  { name: "Jean Recto Azul", price: "$69.900", cuotas: "3 × $23.300 sin interés", cat: "Jeans", tag: "", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80", sizes: "RECTO · 38 40 42 44 46 48" },
+  { name: "Hoodie Off White", price: "$79.900", cuotas: "3 × $26.633 sin interés", cat: "Buzos", tag: "NUEVO", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80", sizes: "OVERSIZE · S M L XL XXL" },
+  { name: "Buzo Negro Oversize", price: "$74.900", cuotas: "3 × $24.967 sin interés", cat: "Buzos", tag: "", img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80", sizes: "OVERSIZE · S M L XL XXL" },
+  { name: "Campera Bomber", price: "$99.900", cuotas: "3 × $33.300 sin interés", cat: "Camperas", tag: "", img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80", sizes: "REGULAR · S M L XL" }
 ];
 
-function render(filter = "Todo") {
+function render(filter = "Todos") {
   const grid = document.getElementById("products");
   grid.innerHTML = "";
-  products
-    .filter(p => filter === "Todo" || p.cat === filter)
+  products.filter(p => filter === "Todos" || p.cat === filter || (filter === "Nuevo" && p.tag === "NUEVO") || (filter === "Ofertas" && p.tag === "2X1"))
     .forEach(p => {
       grid.innerHTML += `
         <div class="card">
+          ${p.tag ? `<div class="tag ${p.tag==='2X1'?'red':''}">${p.tag}</div>` : ''}
           <img src="${p.img}" alt="${p.name}">
           <div class="card-info">
-            <div class="tag">${p.cat}</div>
             <h3>${p.name}</h3>
             <div class="price">${p.price}</div>
-            <button class="btn" style="margin-top:1rem; width:100%;" onclick="addToCart()">Agregar</button>
+            <div class="cuotas">${p.cuotas}</div>
+            <div class="sizes">${p.sizes}</div>
+            <button class="btn" style="width:100%; margin-top:.8rem;" onclick="addToCart()">Agregar</button>
           </div>
         </div>`;
     });
 }
 
-let cart = 0;
+let cart = 0, fav = 0;
 function addToCart() {
   cart++;
   document.getElementById("cart-count").textContent = cart;
+  document.getElementById("cart-items").innerHTML = `<p style="margin-bottom:.5rem;">${cart} producto(s)</p><p style="color:var(--yellow); font-weight:700;">Total: calcular en checkout</p>`;
+}
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("show");
+}
+function toggleFav() {
+  document.getElementById("fav").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("show");
+}
+function closePanels() {
+  document.getElementById("cart").classList.remove("open");
+  document.getElementById("fav").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
 }
 
-document.querySelectorAll(".cat").forEach(c => {
-  c.addEventListener("click", () => {
-    document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
-    c.classList.add("active");
-    render(c.textContent);
+document.querySelectorAll(".filters button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".filters button").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    render(b.textContent);
   });
 });
 
+function updateCountdown() {
+  const now = new Date();
+  let target = new Date(now);
+  target.setHours(20, 0, 0, 0);
+  const day = target.getDay();
+  const daysUntilFriday = (5 - day + 7) % 7 || 7;
+  if (!(day === 5 && now.getHours() < 20)) {
+    target.setDate(target.getDate() + daysUntilFriday);
+  }
+  if (target <= now) target.setDate(target.getDate() + 7);
+  const diff = target - now;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById("d").textContent = String(d).padStart(2, "0");
+  document.getElementById("h").textContent = String(h).padStart(2, "0");
+  document.getElementById("m").textContent = String(m).padStart(2, "0");
+  document.getElementById("s").textContent = String(s).padStart(2, "0");
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
 render();
 </script>
 </body>
